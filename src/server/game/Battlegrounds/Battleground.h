@@ -253,6 +253,7 @@ struct BattlegroundScore
     uint32 HonorableKills;
     uint32 BonusHonor;
     uint32 DamageDone;
+	uint32 HealingDone;
 	/** World of Warcraft Armory **/
     uint32 DamageTaken;
     uint32 HealingTaken;
