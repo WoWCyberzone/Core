@@ -811,24 +811,24 @@ void Battleground::EndBattleground(uint32 winner)
                         Player* player = ObjectAccessor::FindPlayer(itr->first);
                         if (!player)
                             continue;
-                        uint32 plTeamID = player->GetArenaTeamId(winner_arena_team->GetSlot());
+                        uint32 plTeamID = player->GetArenaTeamId(winnerArenaTeam->GetSlot());
                         int changeType;
                         uint32 resultRating;
                         uint32 resultTeamID;
                         int32 ratingChange;
-                        if (plTeamID == winner_arena_team->GetId())
+                        if (plTeamID == winnerArenaTeam->GetId())
                         {
                             changeType = 1; //win
-                            resultRating = winner_team_rating;
+                            resultRating = winnerTeamRating;
                             resultTeamID = plTeamID;
-                            ratingChange = winner_change;
+                            ratingChange = winnerChange;
                         }
                         else
                         {
                             changeType = 2; //lose
-                            resultRating = loser_team_rating;
-                            resultTeamID = loser_arena_team->GetId();
-                            ratingChange = loser_change;
+                            resultRating = loserTeamRating;
+                            resultTeamID = loserArenaTeam->GetId();
+                            ratingChange = loserChange;
                         }
                         std::ostringstream sql_query;
                         //                                                        gameid,              teamid,                     guid,                    changeType,             ratingChange,               teamRating,                  damageDone,                          deaths,                          healingDone,                           damageTaken,,                           healingTaken,                         killingBlows,                      mapId,                 start,                   end
